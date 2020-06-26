@@ -1,7 +1,6 @@
 import React from 'react';
 import Board from './Board';
 
-
 class Home extends React.Component {
 
   constructor(props) {
@@ -49,7 +48,7 @@ class Home extends React.Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li key={move}>
+        <li key={move} className="margin-button">
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
@@ -64,16 +63,16 @@ class Home extends React.Component {
 
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-4 col-md-3 ">
+        <div className="row margin-home-2">
+          <div className="col-4 col-md-3 margin-home-1">
             {status}
           </div>
-          <div className="col-8 col-md-3">
+          <div className="col-8 col-md-3 margin-home-1">
             <Board
               squares={current.squares}
               onClick={(i) => this.handleClick(i)}/>
           </div>
-          <div className="col-12 col-md-6 mh-100 margin">
+          <div className="col-12 col-md-6 margin-home-1">
             <ol>{moves}</ol>
           </div>
         </div>

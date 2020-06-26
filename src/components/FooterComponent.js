@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-function Footer(props) {
+function Footer() {
     return(
         <div className="footer">
             <div className="container">
@@ -14,7 +13,7 @@ function Footer(props) {
                     </div>
                     <div className="col-4 col-md-4 align-self-center">
                         <div className="text-center">
-                            <a className="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/dhrumilshah26/" target="_blank"><i className="fa fa-linkedin"></i></a>
+                            <a className="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/dhrumilshah26/"><i className="fa fa-linkedin"></i></a>
                             <a className="btn btn-social-icon" href="mailto:sdhrumil2605@gmail.com"><i className="fa fa-envelope-o"></i></a>
                         </div>
                     </div>
