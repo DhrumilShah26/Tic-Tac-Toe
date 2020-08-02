@@ -3,16 +3,21 @@ import Board from './Board';
 
 class Home extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      history: [{
-        squares: Array(9).fill(null),
-      }],
-      xIsNext: true,
-      stepNumber: 0,
+    initialize = () => {
+      return {
+        history: [{
+          squares: Array(9).fill(null),
+        }],
+        xIsNext: true,
+        stepNumber: 0,
+      }
     }
-  }
+
+  state = this.initialize();
+
+  reset = () => {
+    this.setState(this.initialize());
+  };
 
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
@@ -72,9 +77,20 @@ class Home extends React.Component {
               squares={current.squares}
               onClick={(i) => this.handleClick(i)}/>
           </div>
-          <div className="col-12 col-md-6 margin-home-1">
+          <div className="col-6 col-md-3 margin-home-1">
             <ol>{moves}</ol>
           </div>
+            {/** Depending upon the state of the game, either show 
+                "Play again" button or "Reset game" button */
+              winner != null ? (
+              <div className="col-6 col-md-3 margin-home-1">
+                <button onClick={() => this.reset()}>Play again</button>
+              </div>
+            ) : (
+              <div className="col-6 col-md-3 margin-home-1">
+                <button onClick={() => this.reset()}>Reset game</button>
+              </div>
+            )}
         </div>
       </div> 
     );
